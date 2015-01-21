@@ -61,10 +61,10 @@ public class SyntaxSpec {
 
 	public static IStructure[] Rule() {
 		return new IStructure[] {
-			new Alternative(new Optional(new Sequence(new Sort("Modifier"), new Sort("RequiredSpaces"))), new Sort("Sort"), new Sort("OptionalSpaces"), new Char('='), new Sort("Layout"), new PlusList(new Sort("RHS"), new Sort("Layout"))),
-			new Alternative(new Optional(new Sequence(new Sort("Modifier"), new Sort("RequiredSpaces"))), new Sort("Sort"), new Sort("OptionalSpaces"), new Literal("=="), new Sort("Layout"), new PlusList(new Sort("RHS"), new Sort("Layout"))),
-			new Alternative(new Literal("keyword"), new Sort("RequiredSpaces"), new Sort("Sort"), new Sort("OptionalSpaces"), new Char('='), new Sort("Layout"), new PlusList(new Sort("KeywordRHS"), new Sort("Layout"))),
-			new Alternative(new Literal("keyword"), new Sort("RequiredSpaces"), new Sort("Sort"), new Sort("OptionalSpaces"), new Literal("=="), new Sort("Layout"), new PlusList(new Sort("KeywordRHS"), new Sort("Layout")))
+			new Alternative(new Optional(new Sequence(new Sort("Modifier"), new Sort("RequiredSpaces"))), new Sort("Sort"), new Sort("OptionalSpaces"), new Char('='), new Sort("Layout"), new PlusList(new Sort("RHS"), new Sort("OptionalSpaces"), new Sort("EndLine"), new Sort("OptionalSpaces"))),
+			new Alternative(new Optional(new Sequence(new Sort("Modifier"), new Sort("RequiredSpaces"))), new Sort("Sort"), new Sort("OptionalSpaces"), new Literal("=="), new Sort("Layout"), new PlusList(new Sort("RHS"), new Sort("OptionalSpaces"), new Sort("EndLine"), new Sort("OptionalSpaces"))),
+			new Alternative(new Literal("keyword"), new Sort("RequiredSpaces"), new Sort("Sort"), new Sort("OptionalSpaces"), new Char('='), new Sort("Layout"), new PlusList(new Sort("KeywordRHS"), new Sort("OptionalSpaces"), new Sort("EndLine"), new Sort("OptionalSpaces"))),
+			new Alternative(new Literal("keyword"), new Sort("RequiredSpaces"), new Sort("Sort"), new Sort("OptionalSpaces"), new Literal("=="), new Sort("Layout"), new PlusList(new Sort("KeywordRHS"), new Sort("OptionalSpaces"), new Sort("EndLine"), new Sort("OptionalSpaces")))
 		};
 	}
 

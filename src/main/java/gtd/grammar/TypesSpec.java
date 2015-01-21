@@ -9,8 +9,6 @@ import gtd.grammar.symbols.Literal;
 import gtd.grammar.symbols.Optional;
 import gtd.grammar.symbols.PlusList;
 import gtd.grammar.symbols.Sort;
-import gtd.grammar.symbols.StarList;
-import gtd.stack.filter.after.CharRangeFollowRestriction;
 
 public class TypesSpec {
 	public final static Class<?>[] IMPORTS = new Class<?>[] {
@@ -80,7 +78,11 @@ public class TypesSpec {
 
 	public static IStructure[] Sort() {
 		return new IStructure[] {
-			new Alternative(new CharRange('A', 'Z'), new StarList(new CharRanges(new CharRange('A', 'Z'), new CharRange('a', 'z'), new CharRange('0', '9'))).withAfterFilters(new CharRangeFollowRestriction('A', 'Z'),new CharRangeFollowRestriction('a', 'z'), new CharRangeFollowRestriction('0', '9')))
+			new Alternative(new PlusList(new CharRanges(new CharRange('A', 'Z'), new CharRange('a', 'z'), new CharRange('0', '9')))
+			    .startingWith('A', 'Z')
+			    .notFollowedBy('A', 'Z')
+			    .notFollowedBy('a', 'z')
+			    .notFollowedBy('0', '9'))
 		};
 	}
 }
