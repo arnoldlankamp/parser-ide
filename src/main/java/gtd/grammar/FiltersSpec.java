@@ -49,6 +49,8 @@ public class FiltersSpec {
 		return new IStructure[] {
 			new Alternative(new Sort("FollowRestriction")),
 			new Alternative(new Sort("FollowRequirement")),
+			new Alternative(new Sort("PrefixRestriction")),
+			new Alternative(new Sort("PrefixRequirement")),
 			new Alternative(new Sort("MatchRestriction"))
 		};
 	}
@@ -62,6 +64,18 @@ public class FiltersSpec {
 	public static IStructure[] FollowRequirement() {
 		return new IStructure[] {
 			new Alternative(new Literal("=->"), new Sort("OptionalSpaces"), new Sort("FilterSpecification"))
+		};
+	}
+
+	public static IStructure[] PrefixRequirement() {
+		return new IStructure[] {
+			new Alternative(new Literal("^->"), new Sort("OptionalSpaces"), new Sort("FilterSpecification"))
+		};
+	}
+
+	public static IStructure[] PrefixRestriction() {
+		return new IStructure[] {
+			new Alternative(new Literal("!^->"), new Sort("OptionalSpaces"), new Sort("FilterSpecification"))
 		};
 	}
 
