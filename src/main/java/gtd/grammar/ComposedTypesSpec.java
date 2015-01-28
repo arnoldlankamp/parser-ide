@@ -37,7 +37,7 @@ public class ComposedTypesSpec {
 
 	public static IStructure[] RestrictedSort() {
 		return new IStructure[] {
-			new Alternative(new Char('-'), new Sort("Sort"))
+			new Alternative(new Sort("Sort"), new Char('-'))
 		};
 	}
 
